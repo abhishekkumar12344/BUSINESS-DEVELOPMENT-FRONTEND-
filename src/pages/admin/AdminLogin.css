@@ -1,0 +1,70 @@
+.login { display: grid; grid-template-columns: 1.05fr 0.95fr; min-height: 100vh; }
+
+.login__aside {
+  position: relative;
+  background: linear-gradient(155deg, var(--green-deep), var(--green-dark));
+  color: rgba(255, 255, 255, 0.78);
+  display: grid;
+  align-items: center;
+  padding: clamp(2rem, 6vw, 5rem);
+  overflow: hidden;
+}
+
+.login__demo {
+  display: grid;
+  gap: 0.3rem;
+  margin: 1rem 0 1.2rem;
+  padding: 0.9rem 1rem;
+  background: var(--gold-soft);
+  border: 1px solid rgba(244, 180, 0, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--green-deep);
+}
+
+.login__demo span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); }
+.login__demo strong { font-size: 0.96rem; }
+.login__demo small { font-size: 0.75rem; opacity: 0.8; }
+.login__demo-btn {
+  margin-top: 0.4rem;
+  justify-self: flex-start;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(0, 107, 60, 0.08);
+  color: var(--green-deep);
+  font-weight: 600;
+}
+.login__motif { position: absolute; right: -12%; bottom: -8%; width: 78%; opacity: 0.25; }
+.login__aside-inner { position: relative; z-index: 1; max-width: 42ch; }
+
+.login__logo {
+  width: 120px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 0.6rem;
+  margin-bottom: 2rem;
+}
+.login__aside h1 { color: var(--white); font-size: clamp(1.9rem, 4vw, 2.8rem); margin-bottom: 0.8rem; }
+.login__aside p { font-size: 1rem; line-height: 1.65; }
+.login__back { color: var(--gold); font-size: 0.88rem; font-weight: 600; }
+
+.login__panel { display: grid; place-items: center; padding: clamp(2rem, 5vw, 4rem); background: var(--off-white); }
+.login__form { width: min(420px, 100%); background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.6rem, 4vw, 2.5rem); }
+.login__form h2 { font-size: 1.6rem; margin-bottom: 0.3rem; }
+.login__sub { color: var(--ink-muted); font-size: 0.9rem; margin-bottom: 1.6rem; }
+.login__error { margin-bottom: 1.1rem; }
+.login__submit { width: 100%; justify-content: center; padding: 0.8rem; margin-top: 0.4rem; }
+.login__note { font-size: 0.78rem; color: var(--ink-muted); margin: 1.2rem 0 0; }
+
+@media (max-width: 900px) {
+  .login { grid-template-columns: 1fr; }
+  .login__aside { padding-block: 3rem; }
+  .login__aside h1 { font-size: 1.7rem; }
+  .login__logo { width: 84px; margin-bottom: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+  .login__panel { padding: 1rem; }
+  .login__form { padding: 1.2rem; border-radius: 12px; }
+  .login__demo { padding: 0.8rem; }
+  .login__note { font-size: 0.74rem; }
+}

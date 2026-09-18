@@ -1,0 +1,82 @@
+.dash-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+
+.dash-stat {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.2rem;
+  color: var(--ink);
+  transition: transform 0.28s var(--ease), border-color 0.28s var(--ease), box-shadow 0.28s var(--ease);
+}
+.dash-stat:hover { transform: translateY(-3px); border-color: var(--green-mist); box-shadow: var(--shadow-soft); color: var(--ink); }
+.dash-stat--accent { background: var(--green-deep); border-color: var(--green-deep); color: var(--white); }
+.dash-stat--accent:hover { color: var(--white); }
+
+.dash-stat__num { font-family: var(--font-display); font-size: 2.1rem; line-height: 1; margin: 0 0 0.4rem; color: var(--green-deep); }
+.dash-stat--accent .dash-stat__num { color: var(--gold); }
+.dash-stat__label { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--ink-muted); margin: 0; }
+.dash-stat--accent .dash-stat__label { color: rgba(255, 255, 255, 0.7); }
+
+.dash-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1.2rem; }
+
+.dash-chart__total { font-size: 0.8rem; color: var(--ink-muted); }
+.dash-bars { display: flex; align-items: flex-end; gap: 0.8rem; height: 210px; padding-top: 1rem; }
+.dash-bar { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; gap: 0.4rem; }
+.dash-bar__value { font-size: 0.78rem; color: var(--ink-muted); font-weight: 600; }
+.dash-bar__fill {
+  width: 100%;
+  max-width: 46px;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--green-growth), var(--green));
+  transition: height 0.6s var(--ease);
+}
+.dash-bar:last-child .dash-bar__fill { background: linear-gradient(180deg, var(--gold), var(--gold-deep)); }
+.dash-bar__label { font-size: 0.74rem; color: var(--ink-muted); }
+
+.dash-status__list { display: grid; gap: 0.9rem; }
+.dash-status__list li { display: grid; grid-template-columns: 110px 1fr 28px; align-items: center; gap: 0.7rem; }
+.dash-status__track { height: 7px; background: var(--off-white); border-radius: 999px; overflow: hidden; }
+.dash-status__track span { display: block; height: 100%; background: var(--green); border-radius: 999px; }
+.dash-status__list strong { font-size: 0.85rem; text-align: right; }
+
+.dash-muted { color: var(--ink-muted); font-size: 0.88rem; margin: 0; }
+
+.dash-leads { display: grid; }
+.dash-leads li { border-bottom: 1px solid var(--line); }
+.dash-leads li:last-child { border-bottom: none; }
+.dash-leads a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.75rem 0; color: var(--ink); }
+.dash-leads a:hover { color: var(--green); }
+.dash-leads__name { display: flex; flex-direction: column; font-size: 0.9rem; font-weight: 600; }
+.dash-leads__name em { font-style: normal; font-size: 0.78rem; color: var(--ink-muted); font-weight: 400; }
+.dash-leads__meta { display: flex; align-items: center; gap: 0.7rem; }
+.dash-leads__meta time { font-size: 0.76rem; color: var(--ink-muted); }
+
+.dash-activity { display: grid; gap: 0.85rem; }
+.dash-activity li { display: flex; gap: 0.7rem; font-size: 0.86rem; color: var(--ink-soft); }
+.dash-activity em { display: block; font-style: normal; font-size: 0.74rem; color: var(--ink-muted); margin-top: 0.15rem; }
+.dash-activity__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-growth); margin-top: 0.45rem; flex: none; }
+.dash-activity__dot--failed { background: #c0392b; }
+
+.dash-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+.dash-services li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  background: var(--off-white);
+  border-radius: var(--radius-sm);
+  font-size: 0.86rem;
+}
+.dash-services strong { font-family: var(--font-display); color: var(--green); font-size: 1.05rem; }
+
+@media (max-width: 1240px) { .dash-stats { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 1000px) {
+  .dash-grid { grid-template-columns: 1fr; }
+  .dash-services { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .dash-stats { grid-template-columns: 1fr 1fr; }
+  .dash-services { grid-template-columns: 1fr; }
+  .dash-status__list li { grid-template-columns: 100px 1fr 24px; }
+}

@@ -1,0 +1,100 @@
+.approach-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-top: 2.4rem;
+}
+
+.approach-track__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 7px;
+  height: 2px;
+  background: var(--line);
+}
+.approach-track__line span {
+  display: block;
+  height: 100%;
+  background: var(--gold);
+  transition: width 0.5s var(--ease);
+}
+
+.approach-node {
+  position: relative;
+  text-align: left;
+  padding-right: 1rem;
+  color: var(--ink-muted);
+  transition: color 0.3s var(--ease);
+}
+
+.approach-node__dot {
+  position: absolute;
+  top: -2.4rem;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--line);
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.approach-node.is-done .approach-node__dot { border-color: var(--gold); background: var(--gold); }
+.approach-node.is-active .approach-node__dot { border-color: var(--green); background: var(--green); transform: scale(1.25); }
+
+.approach-node__num { display: block; font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); }
+.approach-node__title { display: block; font-family: var(--font-display); font-size: var(--step-1); color: var(--ink-soft); transition: color 0.3s var(--ease); }
+.approach-node:hover .approach-node__title { color: var(--green); }
+.approach-node.is-active .approach-node__title { color: var(--green-deep); }
+
+.approach-detail {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  background: var(--off-white);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.8rem, 4vw, 3.2rem);
+  border-left: 4px solid var(--green);
+}
+
+.approach-detail__index span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 8vw, 5.4rem);
+  line-height: 1;
+  color: var(--gold);
+}
+.approach-detail__index p { font-size: 0.82rem; color: var(--ink-muted); margin: 0.4rem 0 0; }
+
+.approach-detail__body h2 { font-size: var(--step-3); margin-bottom: 0.7rem; }
+.approach-detail__desc { font-size: var(--step-1); color: var(--ink); line-height: 1.55; }
+.approach-detail__more { color: var(--ink-soft); margin-bottom: 1.8rem; }
+.approach-detail__nav { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.approach-detail__nav .btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+
+.approach-all__head { margin-bottom: 2.6rem; }
+.approach-all__head h2 { font-size: var(--step-3); }
+.approach-all__list { display: grid; gap: 0; }
+.approach-all__item { display: flex; gap: clamp(1rem, 3vw, 2.5rem); padding: 2rem 0; border-bottom: 1px solid var(--line); }
+.approach-all__item:first-child { border-top: 1px solid var(--line); }
+.approach-all__num { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--gold); line-height: 1; min-width: 60px; }
+.approach-all__item h3 { font-size: var(--step-2); margin-bottom: 0.4rem; }
+.approach-all__item p { margin-bottom: 0.4rem; color: var(--ink); }
+.approach-all__item p.muted { font-size: 0.94rem; margin: 0; }
+
+.approach-cta__inner { text-align: center; }
+.approach-cta__inner h2 { font-size: var(--step-3); max-width: 20ch; margin-inline: auto; margin-bottom: 1.6rem; }
+
+@media (max-width: 860px) {
+  .approach-track { grid-template-columns: 1fr 1fr; gap: 1.6rem 1rem; }
+  .approach-track__line { display: none; }
+  .approach-node__dot { position: static; display: inline-block; margin-bottom: 0.4rem; }
+  .approach-detail { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .approach-track { grid-template-columns: 1fr; }
+  .approach-all__item { flex-direction: column; gap: 0.6rem; }
+}

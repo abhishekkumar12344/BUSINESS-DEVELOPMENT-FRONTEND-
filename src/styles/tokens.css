@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Nisha Project & Business Management LLC - design tokens
+   Palette taken from the company logo: forest green, growth green, gold.
+   ========================================================================== */
+
+:root {
+  /* The palette is fixed light - the brand greens and gold need a white ground. */
+  color-scheme: light;
+
+  /* Brand colour */
+  --green: #006b3c;
+  --green-dark: #004d2c;
+  --green-deep: #00341e;
+  --green-growth: #16a34a;
+  --green-mist: #e6f0ea;
+  --gold: #f4b400;
+  --gold-soft: #fff7d6;
+  --gold-deep: #c98f00;
+
+  /* Neutrals */
+  --white: #ffffff;
+  --off-white: #f6f8f6;
+  --ink: #15251d;
+  --ink-soft: #3d5147;
+  --ink-muted: #6b7f74;
+  --line: #dfe7e1;
+  --line-dark: rgba(255, 255, 255, 0.16);
+
+  /* Type */
+  --font-display: 'Fraunces', 'Georgia', 'Times New Roman', serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --step--1: clamp(0.82rem, 0.79rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.08rem);
+  --step-1: clamp(1.2rem, 1.12rem + 0.4vw, 1.4rem);
+  --step-2: clamp(1.5rem, 1.34rem + 0.8vw, 2rem);
+  --step-3: clamp(1.9rem, 1.6rem + 1.5vw, 2.9rem);
+  --step-4: clamp(2.4rem, 1.85rem + 2.7vw, 4.2rem);
+  --step-5: clamp(2.9rem, 2rem + 4.4vw, 5.8rem);
+
+  /* Space & shape */
+  --gutter: clamp(1.25rem, 4vw, 5rem);
+  --section-y: clamp(4.5rem, 9vw, 9rem);
+  --maxw: 1320px;
+  --radius-sm: 4px;
+  --radius: 10px;
+  --radius-lg: 20px;
+
+  --shadow-soft: 0 18px 44px -28px rgba(0, 52, 30, 0.45);
+  --shadow-lift: 0 26px 60px -30px rgba(0, 52, 30, 0.55);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}

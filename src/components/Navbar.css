@@ -1,0 +1,159 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  transition: background 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+  border-bottom: 1px solid transparent;
+  background: linear-gradient(to bottom, rgba(0, 52, 30, 0.55), transparent);
+}
+
+.nav--solid {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--line);
+  box-shadow: 0 10px 30px -26px rgba(0, 52, 30, 0.5);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 84px;
+}
+
+.nav__brand { display: flex; align-items: center; gap: 0.75rem; margin-right: auto; }
+
+.nav__logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: var(--white);
+  padding: 2px;
+}
+
+.nav__brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+
+.nav__brand-name {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.nav__brand-sub {
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 500;
+}
+
+.nav--solid .nav__brand-name { color: var(--green-deep); }
+.nav--solid .nav__brand-sub { color: var(--ink-muted); }
+
+.nav__links { display: flex; align-items: center; gap: 1.55rem; }
+
+.nav__link {
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  padding-block: 0.4rem;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.3s var(--ease);
+}
+
+.nav__link:hover { color: var(--white); }
+.nav__link:hover::after,
+.nav__link.is-active::after { width: 100%; }
+.nav__link.is-active { color: var(--gold); }
+
+.nav--solid .nav__link { color: var(--ink-soft); }
+.nav--solid .nav__link:hover { color: var(--green); }
+.nav--solid .nav__link.is-active { color: var(--green); }
+
+.nav__cta { padding: 0.7rem 1.35rem; }
+
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0 8px;
+}
+
+.nav__burger span {
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.2s var(--ease), background 0.3s var(--ease);
+}
+
+.nav--solid .nav__burger span { background: var(--green-deep); }
+.nav--open .nav__burger span { background: var(--green-deep); }
+.nav--open .nav__burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav--open .nav__burger span:nth-child(2) { opacity: 0; }
+.nav--open .nav__burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav__drawer {
+  display: none;
+  position: fixed;
+  inset: 84px 0 0;
+  background: var(--white);
+  padding: 2rem var(--gutter) 3rem;
+  overflow-y: auto;
+  animation: drawer-in 0.35s var(--ease);
+}
+
+.nav--open .nav__drawer {
+  display: block;
+}
+
+@keyframes drawer-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.nav__drawer nav { display: flex; flex-direction: column; }
+
+.nav__drawer-link {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--green-deep);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav__drawer-link.is-active { color: var(--green); }
+.nav__drawer-cta { margin-top: 1.8rem; align-self: flex-start; }
+.nav__drawer-note { margin-top: 2rem; color: var(--ink-muted); font-size: var(--step--1); }
+
+@media (max-width: 1120px) {
+  .nav__links { display: none; }
+  .nav__cta { display: none; }
+  .nav__burger { display: flex; }
+  .nav--open { background: var(--white); border-bottom-color: var(--line); }
+  .nav--open .nav__brand-name { color: var(--green-deep); }
+  .nav--open .nav__brand-sub { color: var(--ink-muted); }
+}
+
+@media (max-width: 480px) {
+  .nav__inner { min-height: 72px; }
+  .nav__drawer { inset-block-start: 72px; }
+  .nav__logo { width: 44px; height: 44px; }
+  .nav__brand-name { font-size: 1.25rem; }
+  .nav__brand-sub { font-size: 0.58rem; }
+}

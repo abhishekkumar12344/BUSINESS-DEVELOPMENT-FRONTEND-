@@ -1,0 +1,37 @@
+.page-header {
+  position: relative;
+  background: var(--green-deep);
+  color: rgba(255, 255, 255, 0.82);
+  padding-block: clamp(9rem, 16vw, 13rem) clamp(4rem, 8vw, 6.5rem);
+  overflow: hidden;
+}
+
+.page-header__motif {
+  position: absolute;
+  right: -6%;
+  top: 6%;
+  width: min(620px, 62%);
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.page-header__inner { position: relative; z-index: 1; }
+
+.page-header__title {
+  color: var(--white);
+  font-size: var(--step-4);
+  max-width: 17ch;
+  margin-bottom: 1.1rem;
+}
+
+.page-header__intro {
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 54ch;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .page-header__motif { width: 90%; right: -20%; opacity: 0.18; }
+}

@@ -1,0 +1,12 @@
+.insight-detail__body { max-width: 74ch; }
+.insight-detail__cover { width: 100%; border-radius: var(--radius-lg); margin-bottom: 2rem; }
+.insight-detail__byline { font-size: 0.86rem; color: var(--ink-muted); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
+.insight-detail__content p { font-size: 1.06rem; line-height: 1.8; color: var(--ink-soft); margin-bottom: 1.4rem; }
+.insight-detail__tags { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 2rem 0; }
+.insight-detail__tags li {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: var(--gold-soft);
+  color: var(--green-dark);
+}
