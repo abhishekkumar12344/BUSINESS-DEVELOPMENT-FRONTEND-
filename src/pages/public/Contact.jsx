@@ -4,7 +4,7 @@ import api, { readError } from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
 import { useSite } from '../../context/SiteContext';
-import { company, serviceOptions } from '../../data/siteContent';
+import { company, serviceOptions, pageImages } from '../../data/siteContent';
 import './Contact.css';
 
 const emptyForm = { name: '', company: '', email: '', phone: '', service: '', message: '' };
@@ -35,6 +35,7 @@ const Contact = () => {
         eyebrow="Contact"
         title="Tell us what you need managed."
         intro="Send an enquiry and our team will respond with next steps. For a detailed project brief, use the consultation form instead."
+        image={pageImages.meeting}
       />
 
       <section className="section contact-body">

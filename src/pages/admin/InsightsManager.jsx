@@ -42,7 +42,7 @@ const InsightsManager = () => (
       { name: 'excerpt', label: 'Excerpt', type: 'textarea', rows: 2, hint: 'Shown on the insights list.' },
       { name: 'content', label: 'Article body', type: 'textarea', rows: 12, hint: 'Leave a blank line between paragraphs.' },
       { name: 'tags', label: 'Tags', type: 'list', hint: 'One tag per line.' },
-      { name: 'coverImage', label: 'Cover image URL' },
+      { name: 'coverImage', label: 'Cover image', type: 'image', folder: 'insights' },
       { name: 'seoTitle', label: 'SEO title' },
       { name: 'seoDescription', label: 'SEO description', type: 'textarea', rows: 2 },
       { name: 'isPublished', label: 'Publish this article', type: 'checkbox' }

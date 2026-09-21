@@ -124,6 +124,7 @@
 .badge--failed { background: #fbe6e2; color: #b23b2c; }
 .badge--published { background: #dff3e4; color: #1a6b39; }
 .badge--draft { background: var(--off-white); color: var(--ink-muted); }
+.badge--gold { background: var(--gold-soft); color: var(--gold-deep); font-size: 0.68rem; padding: 0.15rem 0.5rem; }
 
 /* ---------- Pagination ---------- */
 .admin-pagination {

@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Loader from '../../components/Loader';
+import { pageImages } from '../../data/siteContent';
 import './InsightDetail.css';
 
 const InsightDetail = () => {
@@ -40,6 +41,7 @@ const InsightDetail = () => {
         eyebrow={`${post.category} · ${post.readTime}`}
         title={post.title}
         intro={post.excerpt}
+        image={post.coverImage || pageImages.desk}
       />
 
       <div className="section">

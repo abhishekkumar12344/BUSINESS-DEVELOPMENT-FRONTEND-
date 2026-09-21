@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import api, { readError } from '../../api/client';
 import Loader from '../../components/Loader';
+import ImageUploadField from '../../components/ImageUploadField';
 import { useSite } from '../../context/SiteContext';
 
 /**
@@ -33,6 +34,8 @@ const Settings = () => {
         companyName: form.companyName,
         tagline: form.tagline,
         logo: form.logo,
+        heroImage: form.heroImage,
+        aboutImage: form.aboutImage,
         contact: form.contact,
         social: form.social,
         homepage: form.homepage,
@@ -77,10 +80,41 @@ const Settings = () => {
               <label htmlFor="tagline">Tagline</label>
               <input id="tagline" value={form.tagline || ''} onChange={(e) => setField(null, 'tagline', e.target.value)} />
             </div>
-            <div className="admin-field">
-              <label htmlFor="logo">Logo URL</label>
-              <input id="logo" value={form.logo || ''} onChange={(e) => setField(null, 'logo', e.target.value)} />
-              <span className="admin-field__hint">Upload a file in Media, then paste its URL here.</span>
+            <div className="admin-field" style={{ gridColumn: '1 / -1' }}>
+              <ImageUploadField
+                id="logo"
+                label="Logo"
+                value={form.logo}
+                onChange={(url) => setField(null, 'logo', url)}
+                hint="Shown in the navigation bar and footer."
+                folder="branding"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="admin-card">
+          <div className="admin-card__head"><h2>Homepage &amp; page images</h2></div>
+          <div className="admin-grid-2">
+            <div className="admin-field" style={{ gridColumn: '1 / -1' }}>
+              <ImageUploadField
+                id="heroImage"
+                label="Homepage hero image"
+                value={form.heroImage}
+                onChange={(url) => setField(null, 'heroImage', url)}
+                hint="The large background image behind the homepage headline."
+                folder="branding"
+              />
+            </div>
+            <div className="admin-field" style={{ gridColumn: '1 / -1' }}>
+              <ImageUploadField
+                id="aboutImage"
+                label="About page image"
+                value={form.aboutImage}
+                onChange={(url) => setField(null, 'aboutImage', url)}
+                hint="Used on the About page and as a fallback story image."
+                folder="branding"
+              />
             </div>
           </div>
         </section>
@@ -164,12 +198,27 @@ const Settings = () => {
           <div className="admin-card__head"><h2>Search engines</h2></div>
           <div className="admin-grid-2">
             <div className="admin-field" style={{ gridColumn: '1 / -1' }}>
-              <label htmlFor="metaTitle">Default page title</label>
-              <input id="metaTitle" value={form.seo?.metaTitle || ''} onChange={(e) => setField('seo', 'metaTitle', e.target.value)} />
+              <label htmlFor="seoTitle">Default page title</label>
+              <input id="seoTitle" value={form.seo?.title || ''} onChange={(e) => setField('seo', 'title', e.target.value)} />
             </div>
             <div className="admin-field" style={{ gridColumn: '1 / -1' }}>
-              <label htmlFor="metaDescription">Default description</label>
-              <textarea id="metaDescription" rows={2} value={form.seo?.metaDescription || ''} onChange={(e) => setField('seo', 'metaDescription', e.target.value)} />
+              <label htmlFor="seoDescription">Default description</label>
+              <textarea id="seoDescription" rows={2} value={form.seo?.description || ''} onChange={(e) => setField('seo', 'description', e.target.value)} />
+            </div>
+            <div className="admin-field" style={{ gridColumn: '1 / -1' }}>
+              <label htmlFor="seoKeywords">Keywords</label>
+              <input id="seoKeywords" value={form.seo?.keywords || ''} onChange={(e) => setField('seo', 'keywords', e.target.value)} placeholder="project management, business management, Surat" />
+              <span className="admin-field__hint">Comma-separated. Minor for ranking today, but still read by some tools.</span>
+            </div>
+            <div className="admin-field" style={{ gridColumn: '1 / -1' }}>
+              <ImageUploadField
+                id="ogImage"
+                label="Social share image"
+                value={form.seo?.ogImage}
+                onChange={(url) => setField('seo', 'ogImage', url)}
+                hint="Shown when the site is shared on LinkedIn, WhatsApp, etc."
+                folder="branding"
+              />
             </div>
             <div className="admin-field admin-field--check">
               <label>

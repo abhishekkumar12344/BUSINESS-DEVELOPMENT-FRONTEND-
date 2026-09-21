@@ -25,6 +25,7 @@ const About = () => {
         eyebrow="About the company"
         title="Structured management support, built around how businesses actually run."
         intro={company.intro}
+        image={aboutImage}
       />
 
 

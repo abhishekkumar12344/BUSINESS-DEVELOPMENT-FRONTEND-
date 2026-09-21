@@ -111,7 +111,8 @@
 }
 
 
-/* Dark + green overlay */
+/* Lighter overlay - the photograph should read clearly, with just enough
+   depth on the text side (left) to keep the headline legible. */
 
 .hero__overlay {
   position: absolute;
@@ -121,16 +122,16 @@
   background:
     linear-gradient(
       90deg,
-      rgba(3, 25, 18, 0.94) 0%,
-      rgba(3, 25, 18, 0.82) 35%,
-      rgba(3, 25, 18, 0.58) 65%,
-      rgba(3, 25, 18, 0.48) 100%
+      rgba(3, 25, 18, 0.80) 0%,
+      rgba(3, 25, 18, 0.58) 35%,
+      rgba(3, 25, 18, 0.34) 65%,
+      rgba(3, 25, 18, 0.18) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(3, 25, 18, 0.55) 0%,
-      rgba(3, 25, 18, 0.18) 45%,
-      rgba(3, 25, 18, 0.72) 100%
+      rgba(3, 25, 18, 0.32) 0%,
+      rgba(3, 25, 18, 0.06) 45%,
+      rgba(3, 25, 18, 0.46) 100%
     );
 }
 
@@ -236,6 +237,8 @@
   letter-spacing: -0.06em;
 
   font-weight: 600;
+
+  text-shadow: 0 4px 28px rgba(2, 18, 12, 0.35);
 }
 
 
@@ -259,7 +262,7 @@
 
   margin: 0 0 2.5rem;
 
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.86);
 
   font-size: clamp(
     1rem,
@@ -268,6 +271,8 @@
   );
 
   line-height: 1.75;
+
+  text-shadow: 0 2px 16px rgba(2, 18, 12, 0.3);
 }
 
 
@@ -689,6 +694,88 @@
 
 .text-link:hover span {
   transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   FOUNDER
+   ========================================================= */
+
+.home-founder {
+  background: var(--off-white);
+}
+
+.home-founder__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(3rem, 8vw, 6rem);
+  align-items: center;
+}
+
+.home-founder__frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--green-deep);
+  box-shadow: 0 30px 60px -30px rgba(6, 38, 24, 0.45);
+}
+
+.home-founder__frame::after {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(244, 180, 0, 0.55);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.home-founder__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.home-founder__quote {
+  margin: 0 0 1.6rem;
+  padding: 0;
+  border: none;
+  max-width: 42ch;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  line-height: 1.35;
+  color: var(--green-deep);
+}
+
+.home-founder__bio {
+  max-width: 56ch;
+  margin: 0 0 1.8rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+.home-founder__byline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 1.4rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--gold);
+}
+
+.home-founder__name {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.home-founder__role {
+  color: var(--ink-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
 
@@ -1555,6 +1642,24 @@
 
   .home-about__index {
     margin-top: 2rem;
+  }
+
+
+  /* FOUNDER */
+
+  .home-founder__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .home-founder__frame {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .home-founder__quote,
+  .home-founder__bio {
+    max-width: none;
   }
 
 

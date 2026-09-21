@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
-import { whyNisha } from '../../data/siteContent';
+import { whyNisha, pageImages } from '../../data/siteContent';
 import './WhyNisha.css';
 
 const expanded = {
@@ -23,6 +23,7 @@ const WhyNisha = () => {
         eyebrow="Why Nisha"
         title="Six reasons clients hand work to us."
         intro="We are not the only way to manage a project. These are the things we hold to, so you can judge whether they match how you want to work."
+        image={pageImages.team}
       />
 
       <section className="section why-list">

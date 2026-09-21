@@ -4,6 +4,7 @@ import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
 import Loader from '../../components/Loader';
+import { pageImages } from '../../data/siteContent';
 import './Insights.css';
 
 const Insights = () => {
@@ -31,6 +32,7 @@ const Insights = () => {
         eyebrow="Insights"
         title="Notes on managing projects, operations and growth."
         intro="Practical writing from our team on planning, coordination and business management."
+        image={pageImages.desk}
       />
 
       <section className="section insights-body">

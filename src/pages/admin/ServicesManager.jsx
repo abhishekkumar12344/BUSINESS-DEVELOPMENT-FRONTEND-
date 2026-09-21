@@ -45,7 +45,7 @@ const ServicesManager = () => (
           { value: 'coordination', label: 'Coordination & consulting' }
         ]
       },
-      { name: 'image', label: 'Image URL', hint: 'Optional. Upload in Media, then paste the URL.' },
+      { name: 'image', label: 'Image', type: 'image', hint: 'Optional. Shown on the service detail page.' },
       { name: 'seoTitle', label: 'SEO title', full: true },
       { name: 'seoDescription', label: 'SEO description', type: 'textarea', rows: 3 },
       { name: 'isPublished', label: 'Published on the website', type: 'checkbox', initial: true }

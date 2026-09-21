@@ -43,7 +43,14 @@ const MediaLibrary = () => {
 
     setUploading(true);
     try {
-      await api.post('/admin/media', body, { headers: { 'Content-Type': 'multipart/form-data' } });
+      // NOTE: do not set Content-Type to 'multipart/form-data' by hand here -
+      // without the boundary parameter the server cannot parse the upload at
+      // all ("Multipart: Boundary not found"). The api client also sets a
+      // default 'application/json' Content-Type, which would just as badly
+      // cause axios to JSON-encode the FormData and drop the file. Explicitly
+      // clearing it lets axios leave the FormData alone and lets the browser
+      // set the correct multipart boundary header itself.
+      await api.post('/admin/media', body, { headers: { 'Content-Type': undefined } });
       setFeedback({ type: 'ok', text: `${file.name} uploaded.` });
       load();
     } catch (error) {

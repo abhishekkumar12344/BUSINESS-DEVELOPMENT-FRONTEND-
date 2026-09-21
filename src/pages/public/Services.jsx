@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
-import { services as fallbackServices } from '../../data/siteContent';
+import { services as fallbackServices, pageImages } from '../../data/siteContent';
 import './Services.css';
 
 const Services = () => {
@@ -42,6 +42,7 @@ const Services = () => {
         eyebrow="Our services"
         title="Management support designed around the work that matters."
         intro="From planning and coordination to business management and growth, we bring structure to complex work and clarity to the decisions behind it."
+        image={pageImages.collaboration}
       />
 
       {/* =====================================================

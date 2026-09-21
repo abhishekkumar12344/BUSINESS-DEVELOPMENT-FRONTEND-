@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
-import { approach as fallbackApproach } from '../../data/siteContent';
+import { approach as fallbackApproach, pageImages } from '../../data/siteContent';
 import './Approach.css';
 
 const Approach = () => {
@@ -27,6 +27,7 @@ const Approach = () => {
         eyebrow="Our approach"
         title="Plan, organize, execute, monitor, deliver."
         intro="Successful projects and businesses require clear planning, effective communication, disciplined execution and continuous monitoring. Our approach is built around five key principles."
+        image={pageImages.desk}
       />
 
       <section className="section approach-timeline">

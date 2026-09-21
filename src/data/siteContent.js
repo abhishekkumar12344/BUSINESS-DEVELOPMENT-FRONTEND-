@@ -192,6 +192,25 @@ export const values = [
   { title: 'Client Success', icon: 'client-success', description: 'We align our efforts with the objectives and expectations of our clients.' }
 ];
 
+// Curated header photography for the inner pages, so every page carries the
+// same "photograph behind the title" treatment as the homepage hero.
+// Sourced from Unsplash under the Unsplash License (free for commercial use).
+export const pageImages = {
+  meeting: 'https://images.unsplash.com/photo-1758518726324-62bef7c815b0?auto=format&fit=crop&w=1600&q=80',
+  collaboration: 'https://images.unsplash.com/photo-1758518730083-4c12527b6742?auto=format&fit=crop&w=1600&q=80',
+  skyline: 'https://images.unsplash.com/photo-1643755387317-e4145c31948a?auto=format&fit=crop&w=1600&q=80',
+  team: 'https://images.unsplash.com/photo-1758518730523-c9f6336ebdae?auto=format&fit=crop&w=1600&q=80',
+  desk: 'https://images.unsplash.com/photo-1747405415026-f74f7e075090?auto=format&fit=crop&w=1600&q=80'
+};
+
+export const founder = {
+  name: 'Denish Kumar Gandhi',
+  designation: 'Founder & CEO',
+  photo: '/founder-denish-kumar-gandhi.jpg',
+  bio: 'Denish Kumar Gandhi founded Nisha Project & Business Management LLC to bring structured, professional management support to businesses that need clearer planning and steadier execution. He leads the company\u2019s approach to client engagements, from the first conversation through to delivery.',
+  quote: 'Every business deserves the same discipline we would bring to our own \u2014 clear plans, honest communication, and work that gets finished.'
+};
+
 export const audiences = [
   { title: 'Businesses', description: 'Established companies that need management capacity without adding permanent headcount.' },
   { title: 'Entrepreneurs', description: 'Founders turning an idea or opportunity into a planned, organised initiative.' },

@@ -11,6 +11,7 @@ import {
   services as fallbackServices,
   approach as fallbackApproach,
   values as fallbackValues,
+  founder as fallbackFounder,
   whyNisha,
   audiences
 } from '../../data/siteContent';
@@ -50,6 +51,7 @@ const Home = () => {
   const [services, setServices] = useState(fallbackServices);
   const [approach, setApproach] = useState(fallbackApproach);
   const [values, setValues] = useState(fallbackValues);
+  const [founder, setFounder] = useState(fallbackFounder);
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
@@ -57,10 +59,11 @@ const Home = () => {
 
     const load = async () => {
       try {
-        const [s, a, v] = await Promise.all([
+        const [s, a, v, t] = await Promise.all([
           api.get('/content/services'),
           api.get('/content/approach'),
-          api.get('/content/values')
+          api.get('/content/values'),
+          api.get('/content/team')
         ]);
 
         if (!alive) return;
@@ -75,6 +78,17 @@ const Home = () => {
 
         if (v.data?.items?.length) {
           setValues(v.data.items);
+        }
+
+        const featuredFounder = (t.data?.items || []).find((member) => member.isFounder);
+        if (featuredFounder) {
+          setFounder({
+            name: featuredFounder.name,
+            designation: featuredFounder.designation || fallbackFounder.designation,
+            photo: featuredFounder.photo || fallbackFounder.photo,
+            bio: featuredFounder.bio || fallbackFounder.bio,
+            quote: fallbackFounder.quote
+          });
         }
       } catch {
         // Fallback company-profile content remains active.
@@ -265,6 +279,44 @@ const Home = () => {
 
             <Link to="/about" className="text-link">
               Read the full company story
+              <span>↗</span>
+            </Link>
+
+          </Reveal>
+
+        </div>
+      </section>
+
+
+      {/* =========================================================
+          FOUNDER
+      ========================================================= */}
+      <section className="section home-founder">
+        <div className="shell home-founder__grid">
+
+          <Reveal className="home-founder__portrait">
+            <div className="home-founder__frame">
+              <img src={founder.photo} alt={founder.name} loading="lazy" />
+            </div>
+          </Reveal>
+
+          <Reveal className="home-founder__content" delay={120}>
+
+            <p className="kicker">Founder</p>
+
+            <blockquote className="home-founder__quote">
+              &ldquo;{founder.quote}&rdquo;
+            </blockquote>
+
+            <p className="home-founder__bio">{founder.bio}</p>
+
+            <div className="home-founder__byline">
+              <span className="home-founder__name">{founder.name}</span>
+              <span className="home-founder__role">{founder.designation}</span>
+            </div>
+
+            <Link to="/team" className="text-link">
+              Meet the full team
               <span>↗</span>
             </Link>
 

@@ -50,7 +50,7 @@ const ProjectsManager = () => (
       { name: 'challenge', label: 'The challenge', type: 'textarea', rows: 4 },
       { name: 'approach', label: 'Our approach', type: 'textarea', rows: 4 },
       { name: 'outcome', label: 'Outcome', type: 'textarea', rows: 4 },
-      { name: 'coverImage', label: 'Cover image URL', full: true, hint: 'Upload in Media, then paste the URL here.' },
+      { name: 'coverImage', label: 'Cover image', type: 'image', hint: 'Shown on the Projects page and as the featured case study image.' },
       { name: 'order', label: 'Sort order', type: 'number' },
       { name: 'isPublished', label: 'Published on the website', type: 'checkbox' }
     ]}

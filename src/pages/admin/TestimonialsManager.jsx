@@ -27,7 +27,7 @@ const TestimonialsManager = () => (
       { name: 'designation', label: 'Designation' },
       { name: 'company', label: 'Company' },
       { name: 'quote', label: 'Quote', type: 'textarea', required: true },
-      { name: 'photo', label: 'Photo URL' },
+      { name: 'photo', label: 'Photo', type: 'image', folder: 'testimonials' },
       { name: 'rating', label: 'Rating out of 5', type: 'number', initial: 5 },
       { name: 'order', label: 'Sort order', type: 'number' },
       { name: 'isPublished', label: 'Show on the website', type: 'checkbox' }

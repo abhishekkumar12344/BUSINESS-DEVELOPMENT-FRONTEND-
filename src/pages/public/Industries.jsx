@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
-import { audiences, services } from '../../data/siteContent';
+import { audiences, services, pageImages } from '../../data/siteContent';
 import './Industries.css';
 
 const reach = [
@@ -16,6 +16,7 @@ const Industries = () => (
       eyebrow="Industries & business opportunities"
       title="Positioned to support work across a range of sectors."
       intro="Our management and coordination capabilities can be adapted to different business environments and project requirements."
+      image={pageImages.skyline}
     />
 
     <section className="section industries-who">

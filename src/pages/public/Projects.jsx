@@ -4,6 +4,7 @@ import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
 import Loader from '../../components/Loader';
+import { pageImages } from '../../data/siteContent';
 import './Projects.css';
 
 const Projects = () => {
@@ -61,6 +62,7 @@ const Projects = () => {
         eyebrow="Projects & case studies"
         title="Turning complex work into clear, coordinated progress."
         intro="A selection of projects and engagements published by our team with the client's agreement."
+        image={pageImages.meeting}
       />
 
       {/* =====================================================

@@ -4,6 +4,7 @@ import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
 import Loader from '../../components/Loader';
+import { pageImages } from '../../data/siteContent';
 import './Team.css';
 
 /** Team profiles are added from the admin panel - nothing is pre-filled. */
@@ -30,6 +31,7 @@ const Team = () => {
         eyebrow="Our team"
         title="The people who manage the work."
         intro="Engagements are handled by named people who stay with your project from planning through to delivery."
+        image={pageImages.team}
       />
 
       <section className="section team-body">
@@ -56,6 +58,7 @@ const Team = () => {
                   ) : (
                     <span className="team-card__initials" aria-hidden="true">{initials(member.name)}</span>
                   )}
+                  {member.isFounder && <span className="team-card__badge">Founder</span>}
                   <h3>{member.name}</h3>
                   <p className="team-card__role">{member.designation}</p>
                   {member.bio && <p className="team-card__bio">{member.bio}</p>}

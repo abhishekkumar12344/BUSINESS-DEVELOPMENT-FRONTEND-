@@ -2,7 +2,7 @@ import { useState } from 'react';
 import api, { readError } from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
-import { approach, serviceOptions, timelineOptions } from '../../data/siteContent';
+import { approach, serviceOptions, timelineOptions, pageImages } from '../../data/siteContent';
 import './Consultation.css';
 
 const emptyForm = {
@@ -35,6 +35,7 @@ const Consultation = () => {
         eyebrow="Consultation"
         title="Discuss your project."
         intro="Share the objective, the service you need and your timeline. We will review it and come back with a practical view of how the work can be planned and managed."
+        image={pageImages.collaboration}
       />
 
       <section className="section consultation-body">

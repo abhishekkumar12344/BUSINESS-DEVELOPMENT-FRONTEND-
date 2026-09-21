@@ -7,6 +7,7 @@ import Loader from '../../components/Loader';
 import {
   services as fallbackServices,
   approach,
+  pageImages,
 } from '../../data/siteContent';
 import './ServiceDetail.css';
 
@@ -103,6 +104,7 @@ const ServiceDetail = () => {
         eyebrow={`Service ${service.number || '01'}`}
         title={service.title}
         intro={service.summary}
+        image={service.image || pageImages.collaboration}
       />
 
       {/* ====================================================

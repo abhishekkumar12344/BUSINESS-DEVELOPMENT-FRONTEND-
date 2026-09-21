@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import api, { readError } from '../api/client';
 import Loader from './Loader';
+import ImageUploadField from './ImageUploadField';
 import { useAuth } from '../context/AuthContext';
 
 /**
@@ -9,7 +10,7 @@ import { useAuth } from '../context/AuthContext';
  * API path, the table columns and the form fields; everything else -
  * loading, search, create, edit, publish, delete - is handled here.
  *
- * Field types: text | textarea | number | select | list | checkbox | date
+ * Field types: text | textarea | number | select | list | checkbox | date | image
  */
 const blankFrom = (fields) =>
   fields.reduce((acc, field) => {
@@ -266,7 +267,7 @@ const ResourceManager = ({
                   <div
                     key={field.name}
                     className={`admin-field ${field.type === 'checkbox' ? 'admin-field--check' : ''}`}
-                    style={field.full || field.type === 'textarea' || field.type === 'list' ? { gridColumn: '1 / -1' } : undefined}
+                    style={field.full || field.type === 'textarea' || field.type === 'list' || field.type === 'image' ? { gridColumn: '1 / -1' } : undefined}
                   >
                     {field.type === 'checkbox' ? (
                       <label>
@@ -277,6 +278,15 @@ const ResourceManager = ({
                         />
                         {field.label}
                       </label>
+                    ) : field.type === 'image' ? (
+                      <ImageUploadField
+                        id={`f-${field.name}`}
+                        label={field.label}
+                        value={form[field.name]}
+                        onChange={(url) => setField(field.name, url)}
+                        hint={field.hint}
+                        folder={field.folder || path}
+                      />
                     ) : (
                       <>
                         <label htmlFor={`f-${field.name}`}>{field.label}</label>
@@ -313,7 +323,7 @@ const ResourceManager = ({
                         )}
                       </>
                     )}
-                    {field.hint && <span className="admin-field__hint">{field.hint}</span>}
+                    {field.hint && field.type !== 'image' && <span className="admin-field__hint">{field.hint}</span>}
                   </div>
                 ))}
               </div>
