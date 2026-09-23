@@ -4,14 +4,9 @@ import { useAuth } from '../../context/AuthContext';
 import GrowthArc from '../../components/GrowthArc';
 import './AdminLogin.css';
 
-const demoAccount = {
-  email: 'superadmin@nisha.com',
-  password: 'ChangeMe@12345'
-};
-
 const AdminLogin = () => {
   const { login, user } = useAuth();
-  const [form, setForm] = useState({ email: demoAccount.email, password: demoAccount.password });
+  const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   const navigate = useNavigate();
@@ -21,6 +16,10 @@ const AdminLogin = () => {
     if (user) navigate(location.state?.from || '/admin', { replace: true });
   }, [user, navigate, location.state]);
 
+  const goAfterLogin = (loggedInUser) => {
+    navigate(loggedInUser.role === 'SUPER_ADMIN' ? '/super-admin' : location.state?.from || '/admin', { replace: true });
+  };
+
   const submit = async (e) => {
     e.preventDefault();
     setBusy(true);
@@ -28,7 +27,7 @@ const AdminLogin = () => {
     const result = await login(form.email, form.password);
     setBusy(false);
     if (result.ok) {
-      navigate(result.user.role === 'SUPER_ADMIN' ? '/super-admin' : location.state?.from || '/admin', { replace: true });
+      goAfterLogin(result.user);
     } else {
       setError(result.message);
     }
@@ -52,7 +51,7 @@ const AdminLogin = () => {
       <div className="login__panel">
         <form className="login__form" onSubmit={submit} noValidate>
           <h2>Sign in</h2>
-          <p className="login__sub">Use the account issued to you by the super admin.</p>
+          <p className="login__sub">Use the account issued to you by your system administrator.</p>
 
           {error && <div className="admin-alert admin-alert--error login__error">{error}</div>}
 
@@ -80,15 +79,6 @@ const AdminLogin = () => {
               required
               placeholder="Your password"
             />
-          </div>
-
-          <div className="login__demo">
-            <span>Demo access</span>
-            <strong>{demoAccount.email}</strong>
-            <small>{demoAccount.password}</small>
-            <button type="button" className="login__demo-btn" onClick={() => setForm(demoAccount)}>
-              Fill demo credentials
-            </button>
           </div>
 
           <button type="submit" className="a-btn a-btn--primary login__submit" disabled={busy}>

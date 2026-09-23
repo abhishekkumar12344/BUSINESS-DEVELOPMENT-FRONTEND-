@@ -11,7 +11,7 @@ export const company = {
   descriptor: 'Project Management · Business Management · Strategic Solutions',
   location: 'Surat, Gujarat, India',
   heroImage:
-    'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
+    'https://imgs.search.brave.com/p4eNW-btPcMVmnrL_mq_HeXAmrH39zptWopcVqhZk-c/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNTMy/MTMwMTYxL3Bob3Rv/L3N1cGVyaGVyby1i/dXNpbmVzc21hbi13/aXRoLWNpdHlzY2Fw/ZS1pbi10aGUtYmFj/a2dyb3VuZC5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9YXl1/NHdYb28yUDAwNk5o/b3FZaFJSc2k2RG1y/UGNnd09GUXU5bm5G/Mi1Bbz0',
   aboutImage:
     'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
   intro:
@@ -190,6 +190,136 @@ export const values = [
   { title: 'Innovation', icon: 'innovation', description: 'We remain open to new ideas, technologies and better ways of working.' },
   { title: 'Collaboration', icon: 'collaboration', description: 'We believe strong results come from effective teamwork and communication.' },
   { title: 'Client Success', icon: 'client-success', description: 'We align our efforts with the objectives and expectations of our clients.' }
+];
+
+export const projects = [
+  {
+    _id: 'project-1',
+    slug: 'business-setup-and-operations-streamlining',
+    title: 'Business Setup & Operations Streamlining',
+    sector: 'Business Services',
+    location: 'Surat, Gujarat',
+    summary: 'Structured support for a growing business that needed clear systems, process ownership and better coordination across day-to-day operations.',
+    description: 'We worked with the leadership team to map responsibilities, simplify workflows and improve the operational rhythm of the business. The engagement focused on creating consistent processes, improving communication, and giving the management team clearer visibility into work priorities.',
+    outcome: 'The business developed a cleaner operational structure, improved communication between teams, and stronger accountability around recurring operational tasks.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    _id: 'project-2',
+    slug: 'project-launch-coordination-for-growth-plan',
+    title: 'Project Launch Coordination for Growth Plan',
+    sector: 'Project Management',
+    location: 'Ahmedabad, Gujarat',
+    summary: 'Coordinated the rollout of a new initiative by aligning people, tasks, schedules and milestones around a defined execution plan.',
+    description: 'The client needed help translating a strategic idea into a work plan. We helped define the workstreams, assign owners, build a practical schedule and monitor momentum across execution. The project required close coordination across multiple stakeholders and moving priorities.',
+    outcome: 'The launch moved forward with better alignment, fewer coordination gaps, and a clearer understanding of milestones and deliverables.',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    _id: 'project-3',
+    slug: 'management-reporting-and-performance-review',
+    title: 'Management Reporting & Performance Review',
+    sector: 'Business Strategy',
+    location: 'Vadodara, Gujarat',
+    summary: 'Developed reporting structures and review support for a management team that needed clearer operational visibility and stronger decision support.',
+    description: 'The engagement centred on simplifying the reporting process and creating a more consistent dashboard of business activity. This helped the leadership team identify gaps earlier, review progress with more clarity, and reduce uncertainty around execution.',
+    outcome: 'Leadership gained cleaner management visibility, improved reporting quality, and stronger alignment around operational priorities.',
+    image: 'https://images.unsplash.com/photo-1559136555-3db2f5e7a9f8?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    _id: 'project-4',
+    slug: 'management-reporting-and-performance-review',
+    title: 'Management Reporting & Performance Review',
+    sector: 'Business Strategy',
+    location: 'Vadodara, Gujarat',
+    summary: 'Developed reporting structures and review support for a management team that needed clearer operational visibility and stronger decision support.',
+    description: 'The engagement centred on simplifying the reporting process and creating a more consistent dashboard of business activity. This helped the leadership team identify gaps earlier, review progress with more clarity, and reduce uncertainty around execution.',
+    outcome: 'Leadership gained cleaner management visibility, improved reporting quality, and stronger alignment around operational priorities.',
+    image: 'https://images.unsplash.com/photo-1559136555-3db2f5e7a9f8?auto=format&fit=crop&w=1200&q=80'
+  }
+];
+
+export const teamMembers = [
+  {
+    _id: 'member-founder',
+    name: 'Denish Kumar Gandhi',
+    designation: 'Founder & CEO',
+    photo: '/founder-denish-kumar-gandhi.jpg',
+    bio: 'Denish leads the company’s approach to project planning, operational support and business coordination for clients who need practical management structure.',
+    email: 'hello@nisha-management.com',
+    linkedin: '#',
+    isFounder: true
+  },
+  {
+    _id: 'member-ops',
+    name: 'Devindra Gautam',
+    designation: 'Project Director',
+    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
+    bio: 'Devindra supports performance tracking, internal coordination and structured execution for client assignments.',
+    email: 'ops@nisha-management.com',
+    linkedin: '#',
+    isFounder: false
+  },
+  {
+    _id: 'member-client',
+    name: 'Yash Raj ',
+    designation: 'Project Coordinator',
+    photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80',
+    bio: 'Meera helps coordinate stakeholder communication, project preparation and service delivery planning.',
+    email: 'coordination@nisha-management.com',
+    linkedin: '#',
+    isFounder: false
+  },
+  {
+    _id: 'member-client',
+    name: 'Akash raj ' ,
+    designation: 'Social media & marketing coordinator',
+    photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80',
+    bio: 'Meera helps coordinate stakeholder communication, project preparation and service delivery planning.',
+    email: 'coordination@nisha-management.com',
+    linkedin: '#',
+    isFounder: false
+  },
+  {
+    _id: 'member-client',
+    name: 'Konark Rami',
+    designation: 'Admin Manager',
+    photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80',
+    bio: 'Meera helps coordinate stakeholder communication, project preparation and service delivery planning.',
+    email: 'coordination@nisha-management.com',
+    linkedin: '#',
+    isFounder: false
+  }
+];
+
+export const insights = [
+  {
+    _id: 'insight-1',
+    slug: 'planning-before-execution',
+    title: 'Planning Before Execution',
+    category: 'Project Management',
+    readTime: '5 min read',
+    excerpt: 'A clear plan reduces confusion and makes it easier for teams to focus on execution without losing momentum.',
+    coverImage: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    _id: 'insight-2',
+    slug: 'how-strong-communication-keeps-projects-on-track',
+    title: 'How Strong Communication Keeps Projects on Track',
+    category: 'Operations',
+    readTime: '4 min read',
+    excerpt: 'In most project environments, clearer communication reduces delay and improves accountability across stakeholders.',
+    coverImage: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    _id: 'insight-3',
+    slug: 'using-reviews-to-improve-business-performance',
+    title: 'Using Reviews to Improve Business Performance',
+    category: 'Business Growth',
+    readTime: '6 min read',
+    excerpt: 'Regular management reviews create momentum, highlight issues earlier and strengthen the quality of decisions.',
+    coverImage: 'https://images.unsplash.com/photo-1559136555-3db2f5e7a9f8?auto=format&fit=crop&w=1200&q=80'
+  }
 ];
 
 // Curated header photography for the inner pages, so every page carries the

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import api, { readError } from '../api/client';
 import Loader from './Loader';
 import ImageUploadField from './ImageUploadField';
@@ -63,6 +64,7 @@ const ResourceManager = ({
 }) => {
   const { can } = useAuth();
   const mayEdit = can('SUPER_ADMIN', 'ADMIN', 'CONTENT_MANAGER');
+  const location = useLocation();
 
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -87,6 +89,12 @@ const ResourceManager = ({
   useEffect(() => {
     load();
   }, [load]);
+
+  useEffect(() => {
+    if (location.search.includes('mode=new')) {
+      openNew();
+    }
+  }, [location.search]);
 
   const visible = useMemo(() => {
     const term = search.trim().toLowerCase();

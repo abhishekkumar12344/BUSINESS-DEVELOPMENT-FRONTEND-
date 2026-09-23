@@ -2,6 +2,57 @@
    Shared admin styling - tables, cards, forms, badges, modals
    ========================================================================== */
 
+.studio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.studio-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.2rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #ffffff, #f5f8f6);
+  color: var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.studio-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--green);
+  box-shadow: 0 18px 35px -28px rgba(20, 83, 45, 0.55);
+  color: var(--ink);
+}
+
+.studio-card__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.studio-card strong {
+  font-size: 1.12rem;
+  color: var(--green-deep);
+}
+
+.studio-card p {
+  margin: 0;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.studio-card__actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
 .admin-page { display: grid; gap: 1.6rem; }
 
 .admin-head {

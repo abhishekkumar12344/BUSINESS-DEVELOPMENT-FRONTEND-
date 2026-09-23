@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../api/client';
 import Reveal from '../../components/Reveal';
 import GrowthArc from '../../components/GrowthArc';
 import ValueIcon from '../../components/ValueIcon';
@@ -48,59 +47,11 @@ const helpWith = [
 const Home = () => {
   const { settings } = useSite();
 
-  const [services, setServices] = useState(fallbackServices);
-  const [approach, setApproach] = useState(fallbackApproach);
-  const [values, setValues] = useState(fallbackValues);
-  const [founder, setFounder] = useState(fallbackFounder);
+  const services = fallbackServices;
+  const approach = fallbackApproach;
+  const values = fallbackValues;
+  const founder = fallbackFounder;
   const [activeStep, setActiveStep] = useState(0);
-
-  useEffect(() => {
-    let alive = true;
-
-    const load = async () => {
-      try {
-        const [s, a, v, t] = await Promise.all([
-          api.get('/content/services'),
-          api.get('/content/approach'),
-          api.get('/content/values'),
-          api.get('/content/team')
-        ]);
-
-        if (!alive) return;
-
-        if (s.data?.items?.length) {
-          setServices(s.data.items);
-        }
-
-        if (a.data?.items?.length) {
-          setApproach(a.data.items);
-        }
-
-        if (v.data?.items?.length) {
-          setValues(v.data.items);
-        }
-
-        const featuredFounder = (t.data?.items || []).find((member) => member.isFounder);
-        if (featuredFounder) {
-          setFounder({
-            name: featuredFounder.name,
-            designation: featuredFounder.designation || fallbackFounder.designation,
-            photo: featuredFounder.photo || fallbackFounder.photo,
-            bio: featuredFounder.bio || fallbackFounder.bio,
-            quote: fallbackFounder.quote
-          });
-        }
-      } catch {
-        // Fallback company-profile content remains active.
-      }
-    };
-
-    load();
-
-    return () => {
-      alive = false;
-    };
-  }, []);
 
   const hero = settings.homepage || {};
 

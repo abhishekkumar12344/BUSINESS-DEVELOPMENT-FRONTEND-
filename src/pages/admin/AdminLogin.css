@@ -10,29 +10,6 @@
   overflow: hidden;
 }
 
-.login__demo {
-  display: grid;
-  gap: 0.3rem;
-  margin: 1rem 0 1.2rem;
-  padding: 0.9rem 1rem;
-  background: var(--gold-soft);
-  border: 1px solid rgba(244, 180, 0, 0.3);
-  border-radius: var(--radius-sm);
-  color: var(--green-deep);
-}
-
-.login__demo span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); }
-.login__demo strong { font-size: 0.96rem; }
-.login__demo small { font-size: 0.75rem; opacity: 0.8; }
-.login__demo-btn {
-  margin-top: 0.4rem;
-  justify-self: flex-start;
-  padding: 0.45rem 0.75rem;
-  border-radius: 999px;
-  background: rgba(0, 107, 60, 0.08);
-  color: var(--green-deep);
-  font-weight: 600;
-}
 .login__motif { position: absolute; right: -12%; bottom: -8%; width: 78%; opacity: 0.25; }
 .login__aside-inner { position: relative; z-index: 1; max-width: 42ch; }
 
@@ -65,6 +42,5 @@
 @media (max-width: 480px) {
   .login__panel { padding: 1rem; }
   .login__form { padding: 1.2rem; border-radius: 12px; }
-  .login__demo { padding: 0.8rem; }
   .login__note { font-size: 0.74rem; }
 }

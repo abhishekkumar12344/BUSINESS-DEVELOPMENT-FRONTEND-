@@ -1,38 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
-import Loader from '../../components/Loader';
-import { pageImages } from '../../data/siteContent';
+import { pageImages, projects as fallbackProjects } from '../../data/siteContent';
 import './Projects.css';
 
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const projects = fallbackProjects;
   const [filter, setFilter] = useState('ALL');
-
-  useEffect(() => {
-    let alive = true;
-
-    api
-      .get('/content/projects')
-      .then(({ data }) => {
-        if (alive) {
-          setProjects(data?.items || []);
-        }
-      })
-      .catch(() => {
-        if (alive) setProjects([]);
-      })
-      .finally(() => {
-        if (alive) setLoading(false);
-      });
-
-    return () => {
-      alive = false;
-    };
-  }, []);
 
   const sectors = [
     'ALL',
@@ -69,7 +44,7 @@ const Projects = () => {
           INTRO / PROJECT STATS
       ===================================================== */}
 
-      {!loading && projects.length > 0 && (
+      {projects.length > 0 && (
         <section className="section projects-intro">
           <div className="shell projects-intro__grid">
 
@@ -125,15 +100,11 @@ const Projects = () => {
       <section className="section projects-body">
         <div className="shell">
 
-          {loading && (
-            <Loader label="Loading projects" />
-          )}
-
           {/* =================================================
               EMPTY STATE
           ================================================= */}
 
-          {!loading && projects.length === 0 && (
+          {projects.length === 0 && (
             <Reveal className="projects-empty">
 
               <div className="projects-empty__number">
@@ -210,7 +181,7 @@ const Projects = () => {
               PROJECTS
           ================================================= */}
 
-          {!loading && projects.length > 0 && (
+          {projects.length > 0 && (
             <>
 
               {/* FILTER */}

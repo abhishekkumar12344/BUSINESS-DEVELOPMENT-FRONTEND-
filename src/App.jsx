@@ -29,14 +29,6 @@ import Leads from './pages/admin/Leads';
 import LeadDetail from './pages/admin/LeadDetail';
 import Enquiries from './pages/admin/Enquiries';
 import Consultations from './pages/admin/Consultations';
-import ServicesManager from './pages/admin/ServicesManager';
-import ApproachManager from './pages/admin/ApproachManager';
-import ValuesManager from './pages/admin/ValuesManager';
-import ProjectsManager from './pages/admin/ProjectsManager';
-import TestimonialsManager from './pages/admin/TestimonialsManager';
-import TeamManager from './pages/admin/TeamManager';
-import InsightsManager from './pages/admin/InsightsManager';
-import MediaLibrary from './pages/admin/MediaLibrary';
 import Analytics from './pages/admin/Analytics';
 import Notifications from './pages/admin/Notifications';
 import Settings from './pages/admin/Settings';
@@ -96,21 +88,6 @@ const App = () => (
         <Route path="leads/:id" element={<LeadDetail />} />
         <Route path="enquiries" element={<Enquiries />} />
         <Route path="consultations" element={<Consultations />} />
-        <Route
-          path="services"
-          element={
-            <ProtectedRoute roles={['SUPER_ADMIN', 'ADMIN', 'CONTENT_MANAGER']}>
-              <ServicesManager />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="approach" element={<ApproachManager />} />
-        <Route path="values" element={<ValuesManager />} />
-        <Route path="projects" element={<ProjectsManager />} />
-        <Route path="testimonials" element={<TestimonialsManager />} />
-        <Route path="team" element={<TeamManager />} />
-        <Route path="media" element={<MediaLibrary />} />
-        <Route path="insights" element={<InsightsManager />} />
         <Route path="analytics" element={<Analytics />} />
         <Route path="notifications" element={<Notifications />} />
         <Route

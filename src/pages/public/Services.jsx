@@ -1,32 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
 import { services as fallbackServices, pageImages } from '../../data/siteContent';
 import './Services.css';
 
 const Services = () => {
-  const [services, setServices] = useState(fallbackServices);
+  const services = fallbackServices;
   const [openIndex, setOpenIndex] = useState(0);
-
-  useEffect(() => {
-    let alive = true;
-
-    api
-      .get('/content/services')
-      .then(({ data }) => {
-        if (alive && data?.items?.length) {
-          setServices(data.items);
-        }
-      })
-      .catch(() => {})
-      .finally(() => {});
-
-    return () => {
-      alive = false;
-    };
-  }, []);
 
   const featured = services[0];
   const secondaryServices = services.slice(1);

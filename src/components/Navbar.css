@@ -55,6 +55,34 @@
 
 .nav__links { display: flex; align-items: center; gap: 1.55rem; }
 
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.nav__admin-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav__admin-link:hover { color: var(--gold); }
+
+.nav--solid .nav__admin-link {
+  border-color: var(--line);
+  background: rgba(8, 59, 43, 0.04);
+  color: var(--green-deep);
+}
+
 .nav__link {
   position: relative;
   font-size: 0.9rem;
@@ -137,13 +165,21 @@
   border-bottom: 1px solid var(--line);
 }
 
+.nav__drawer-admin {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  color: var(--green-deep);
+  font-weight: 600;
+}
+
 .nav__drawer-link.is-active { color: var(--green); }
 .nav__drawer-cta { margin-top: 1.8rem; align-self: flex-start; }
 .nav__drawer-note { margin-top: 2rem; color: var(--ink-muted); font-size: var(--step--1); }
 
 @media (max-width: 1120px) {
   .nav__links { display: none; }
-  .nav__cta { display: none; }
+  .nav__actions { display: none; }
   .nav__burger { display: flex; }
   .nav--open { background: var(--white); border-bottom-color: var(--line); }
   .nav--open .nav__brand-name { color: var(--green-deep); }

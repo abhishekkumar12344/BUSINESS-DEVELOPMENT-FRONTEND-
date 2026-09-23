@@ -1,26 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
-import Loader from '../../components/Loader';
-import { pageImages } from '../../data/siteContent';
+import { insights as fallbackInsights, pageImages } from '../../data/siteContent';
 import './Insights.css';
 
 const Insights = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const posts = fallbackInsights;
   const [category, setCategory] = useState('ALL');
-
-  useEffect(() => {
-    let alive = true;
-    api
-      .get('/content/blogs')
-      .then(({ data }) => alive && setPosts(data?.items || []))
-      .catch(() => alive && setPosts([]))
-      .finally(() => alive && setLoading(false));
-    return () => { alive = false; };
-  }, []);
 
   const categories = ['ALL', ...new Set(posts.map((p) => p.category).filter(Boolean))];
   const shown = category === 'ALL' ? posts : posts.filter((p) => p.category === category);
@@ -37,9 +24,7 @@ const Insights = () => {
 
       <section className="section insights-body">
         <div className="shell">
-          {loading && <Loader label="Loading insights" />}
-
-          {!loading && posts.length === 0 && (
+          {posts.length === 0 && (
             <Reveal className="insights-empty">
               <h2>The first articles are on the way.</h2>
               <p>
@@ -50,7 +35,7 @@ const Insights = () => {
             </Reveal>
           )}
 
-          {!loading && posts.length > 0 && (
+          {posts.length > 0 && (
             <>
               {categories.length > 2 && (
                 <div className="insights-filter">

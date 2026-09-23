@@ -1,26 +1,11 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
-import Loader from '../../components/Loader';
-import { pageImages } from '../../data/siteContent';
+import { pageImages, teamMembers as fallbackTeam } from '../../data/siteContent';
 import './Team.css';
 
-/** Team profiles are added from the admin panel - nothing is pre-filled. */
 const Team = () => {
-  const [team, setTeam] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let alive = true;
-    api
-      .get('/content/team')
-      .then(({ data }) => alive && setTeam(data?.items || []))
-      .catch(() => alive && setTeam([]))
-      .finally(() => alive && setLoading(false));
-    return () => { alive = false; };
-  }, []);
+  const team = fallbackTeam;
 
   const initials = (name) =>
     name.split(' ').filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
@@ -36,9 +21,7 @@ const Team = () => {
 
       <section className="section team-body">
         <div className="shell">
-          {loading && <Loader label="Loading team" />}
-
-          {!loading && team.length === 0 && (
+          {team.length === 0 && (
             <Reveal className="team-empty">
               <h2>Team profiles are being added.</h2>
               <p>
@@ -49,7 +32,7 @@ const Team = () => {
             </Reveal>
           )}
 
-          {!loading && team.length > 0 && (
+          {team.length > 0 && (
             <div className="team-grid">
               {team.map((member, i) => (
                 <Reveal key={member._id} className="team-card" delay={i * 70}>

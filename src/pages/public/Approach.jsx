@@ -1,25 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
 import { approach as fallbackApproach, pageImages } from '../../data/siteContent';
 import './Approach.css';
 
 const Approach = () => {
-  const [steps, setSteps] = useState(fallbackApproach);
+  const steps = fallbackApproach;
   const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    let alive = true;
-    api
-      .get('/content/approach')
-      .then(({ data }) => {
-        if (alive && data?.items?.length) setSteps(data.items);
-      })
-      .catch(() => {});
-    return () => { alive = false; };
-  }, []);
 
   return (
     <div className="approach-page">

@@ -1,9 +1,6 @@
-import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import api from '../../api/client';
 import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
-import Loader from '../../components/Loader';
 import {
   services as fallbackServices,
   approach,
@@ -14,53 +11,7 @@ import './ServiceDetail.css';
 const ServiceDetail = () => {
   const { slug } = useParams();
 
-  const [service, setService] = useState(
-    () =>
-      fallbackServices.find((item) => item.slug === slug) ||
-      null
-  );
-
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let alive = true;
-
-    setLoading(true);
-
-    api
-      .get(`/content/services/slug/${slug}`)
-      .then(({ data }) => {
-        if (alive && data?.item) {
-          setService(data.item);
-        }
-      })
-      .catch(() => {
-        const local = fallbackServices.find(
-          (item) => item.slug === slug
-        );
-
-        if (alive) {
-          setService(local || null);
-        }
-      })
-      .finally(() => {
-        if (alive) {
-          setLoading(false);
-        }
-      });
-
-    return () => {
-      alive = false;
-    };
-  }, [slug]);
-
-  /* ========================================================
-     LOADING
-  ======================================================== */
-
-  if (loading && !service) {
-    return <Loader label="Loading service" />;
-  }
+  const service = fallbackServices.find((item) => item.slug === slug) || null;
 
   /* ========================================================
      NOT FOUND

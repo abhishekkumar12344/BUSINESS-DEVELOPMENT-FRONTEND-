@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSite } from '../context/SiteContext';
+import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
 
 const links = [
@@ -19,6 +20,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { settings } = useSite();
+  const { user } = useAuth();
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -54,9 +56,11 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <Link to="/consultation" className="btn btn--gold nav__cta">
-          Discuss Your Project
-        </Link>
+        <div className="nav__actions">
+          <Link to="/consultation" className="btn btn--gold nav__cta">
+            Discuss Your Project
+          </Link>
+        </div>
 
         <button
           type="button"
